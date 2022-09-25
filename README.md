@@ -51,17 +51,10 @@ To install `sklearn`, please refer to the [sklearn Installation Guide](https://s
 To launch the Algorithmic Trading Bot Notebook, perform the following steps:
 
 1. Open Terminal.
-
-![Launch_Terminal](/images/launching_open_terminal.jpg)
-
 2. Navigate to the location of the Algorithmic Trading Bot Notebook.
 3. Enter `jupyter lab` at the Terminal prompt.
-
-![Launch_Jupyter](/images/launching_jupyter.jpg)
-
 4. Verify that you can access Jupyter in your browser.
 
-![Jupyter](/images/jupyter.jpg)
 
 
 ## Tuning the Baseline Algorithm
