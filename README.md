@@ -1,7 +1,7 @@
-# Algorithmic Trading Bot
+# Algorithmic Trading with Machine Learning
 ## Description
 
-The Algorithmic Trading Bot notebook provides an example of how one can use Jupyter and Python to build an algorithmic trading bot.
+The Algorithmic Trading notebook provides an example of how one can use Jupyter and Python to tune a baseline trading algorithm with machine learning.   
 
 The notebook is divided into the following phases:
 
@@ -16,9 +16,8 @@ This example uses the following technologies:
 
 - **Jupyter** - Jupyter is a web-based interactive development environment for data science and analysis. Please see [Jupyter documentation](https://jupyter.org/) for more information.
 - **pandas** - pandas is a software library written for the Python programming language for data manipulation and analysis. Please see [pandas documentation](https://pandas.pydata.org/) for more information.
-- **numpy**
-- **sklearn**
-- **pandas.tseries.offsets**
+- **numpy** - NumPy is a library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
+- **Scikit-Learn** - Scikit-Learn is an open-source machine learning library for the Python programming language.  Please see [Scikit-Learn documentation](https://www.tutorialspoint.com/scikit_learn/scikit_learn_introduction.htm) for more information.
 
 ## Installation
 
@@ -33,6 +32,17 @@ To install Jupyter, please refer to the [Jupyter Installation Guide](https://jup
 ### Installing pandas
 
 To install `pandas`, please refer to the [pandas Installation Guide](https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html).
+
+
+### Installing numpy
+To install `numpy`, please refer to the [numpy Installation Guide](https://numpy.org/install/).
+
+
+### Installing sklearn
+To install `sklearn`, please refer to the [sklearn Installation Guide](https://scikit-learn.org/stable/install.html).
+
+
+
 
 ## Usage
 
@@ -53,53 +63,58 @@ To launch the Algorithmic Trading Bot Notebook, perform the following steps:
 
 ![Jupyter](/images/jupyter.jpg)
 
-## Tuning the Baseline Algorithm
-**Step 1: Tune the training algorithm by adjusting the size of the training dataset.**
-To do so, slice your data into different periods. Rerun the notebook with the updated parameters, and record the results in your README.md file.
 
-Baseline - 3 months
+## Tuning the Baseline Algorithm
+In this section, we tune the model’s input features to find the parameters that result in the best trading outcomes.  We will adjust the size of the training dataset as well as adjusting the SMA input features.
+
+**Step 1: Tune the training algorithm by adjusting the size of the training dataset.**
+In this section, we adjust the size of the training dataset from 3 months, 6 months, 9 months and 12 months.
+
+**Baseline - 3 months**
 ![3 Months](/images/baseline.png)
 
 
-
-6 months
+**6 months**
 ![6 Months](/images/table_tune_6mos.png)
 
-9 months
+**9 months**
 ![9 Months](/images/table_tune_9mos.png)
 
-12 months
+**12 months**
 ![12 Months](/images/table_tune_12mos.png)
 
 
-Answer the following question: What impact resulted from increasing or decreasing the training window?
+**Answer the following question: What impact resulted from increasing or decreasing the training window?**
 When increasing the training window, the strategy results matched the actual results a little closer. 
 
 
 **Step 2: Tune the trading algorithm by adjusting the SMA input features.**
+In this section, we adjust the SMA input features between 30, 60 and 90 days for the short SMA.  
 
-Baseline - 3 months
+**Baseline - 3 months**
 ![3 Months](/images/baseline.png)
 
-12 months w/ 30 day short
+**12 months w/ 30 day short**
 ![12 months w/ 30 day short](/images/table_tune_12mos_30days_short.png)
 
-12 months w/ 60 day short
+**12 months w/ 60 day short**
 ![12 months w/ 60 day short](/images/table_tune_12mos_60days_short.png)
 
-12 months w/ 90 day short
+**12 months w/ 90 day short**
 ![12 months w/ 90 day short](/images/table_tune_12mos_90days_short.png)
 
 
-Answer the following question: What impact resulted from increasing or decreasing either or both of the SMA windows?
+**Answer the following question: What impact resulted from increasing or decreasing either or both of the SMA windows?**
 It appears that increasing or decreasing the short SMA does not have any effect.   However, increase the long SMA does have some effect on actual vs strategy returns. 
 
 **Step 3: Choose the set of parameters that best improved the trading algorithm returns.**
 Save a PNG image of the cumulative product of the actual returns vs. the strategy returns, and document your conclusion in your README.md file.
 
-12 months
-60 days short SMA
-200 days long SMA
+Based on our experimentation, the followiing inputs appeared tp produce the best results: 
+
+- **Dataset Training Size**: 12 months
+- **Short SMA**: 60 days 
+- **Long SMA**: 200 days
 
 ![12 months w/ 90 day short](/images/tune_12mos_60days_short_200days_long.png)
 
